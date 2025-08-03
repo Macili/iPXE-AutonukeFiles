@@ -234,7 +234,8 @@ echo
 echo "[+] Setup complete. Do following steps:"
 echo "    - Restart the server: sudo reboot"
 echo "	  - On restart swap ethernet cable to your empty network."
-echo "	  - Important! Make sure there is no router on this empty network. Only devices who needs to be wiped."
+echo "	  - Important! Make sure there is no router on this empty network. Connect only devices who needs to be wiped to this network."
+echo "	  - Important! Make sure to disable secure boot on your devices who need to be wiped!"
 echo "    - Warning! As soon you choose PXE boot on your devices, they will boot directly into ShredOS and will wipe automatically, without user interaction!"
 echo
 echo "On next boot:"
@@ -242,4 +243,8 @@ echo "  - Static IP will be activated"
 echo "  - All PXE services will start"
 echo "  - An automatic reboot will be triggered"
 echo "  From there on, PXE boot will be available for both BIOS and UEFI."
+echo
+echo "[+] Ethernet swap back:"
+echo "	  - On the same directory you executed this script, there will be now an additional script to toggle network config."
+echo "	  - This toggle allows you to switch between DHCP for internet access and static PXE IP."
 echo
