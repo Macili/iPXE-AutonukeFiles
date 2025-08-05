@@ -60,7 +60,7 @@ mkdir -p opt
 
 # bootlocal.sh
 cat << 'EOF' > opt/bootlocal.sh
-#!/bin/sh
+#!/bin/shThi
 echo "[+] Autowipe Debug Mode Enabled" > /tmp/autowipe.log
 echo "[+] Listing block devices..." >> /tmp/autowipe.log
 
@@ -238,5 +238,25 @@ chmod +x "/root/toggle-network.sh"
 echo "[+] Cleaning up temporary files..."
 rm -rf "$TMP_DIR"
 
+echo "====================================="
+echo "====================================="
+echo "====================================="
 echo
-echo "[+] Setup complete. PXE is ready for BIOS and UEFI with TinyCore Autowipe."
+echo
+echo "[+] Setup complete. Do following steps:"
+echo "    - Restart the server: sudo reboot"
+echo "	  - On restart swap ethernet cable to your empty network."
+echo "	  - Important! Make sure there is no router on this empty network. Connect only devices who needs to be wiped to this network."
+echo "	  - Important! Make sure to disable secure boot on your devices who need to be wiped!"
+echo "    - Warning! As soon you choose PXE IPv4 boot on your devices, they will boot directly into and will wipe automatically, without user interaction!"
+echo
+echo "On next boot:"
+echo "  - Static IP will be activated"
+echo "  - All PXE services will start"
+echo "  - An automatic reboot will be triggered"
+echo "  From there on, PXE boot will be available for both BIOS and UEFI."
+echo
+echo "[+] Ethernet swap back:"
+echo "	  - On the /root/ folder, there will be now an additional script to toggle network config. (toogle-network.sh)"
+echo "	  - This toggle allows you to switch between DHCP for internet access and static PXE IP."
+echo
